@@ -1,0 +1,297 @@
+{
+  "info": {
+    "name": "Crypto Recommendations",
+    "description": "Please consider setting env variables for: recommendation-service-url to http:localhost:8080",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Best for day",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{recommendation-service-url}}/api/v1/cryptos/best?day=2024-01-01",
+          "protocol": "",
+          "host": [
+            "{{recommendation-service-url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "cryptos",
+            "best?day=2024-01-01"
+          ],
+          "query": [
+            {
+              "key": "day",
+              "value": "2024-01-01"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Recommendations",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{recommendation-service-url}}/api/v1/cryptos/recommendations?from=2024-01-01&to=2025-02-15",
+          "protocol": "",
+          "host": [
+            "{{recommendation-service-url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "cryptos",
+            "recommendations?from=2024-01-01&to=2025-02-15"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "2024-01-01"
+            },
+            {
+              "key": "to",
+              "value": "2025-02-15"
+            }
+          ],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Symbol Stats",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{recommendation-service-url}}/api/v1/cryptos/BTC/stats",
+          "protocol": "",
+          "host": [
+            "{{recommendation-service-url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "cryptos",
+            "BTC",
+            "stats"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "actuator",
+      "item": [
+        {
+          "name": "Actuator Readiness",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{recommendation-service-url}}/actuator/health/readiness",
+              "protocol": "",
+              "host": [
+                "{{recommendation-service-url}}"
+              ],
+              "path": [
+                "actuator",
+                "health",
+                "readiness"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "2022-01-01"
+                },
+                {
+                  "key": "to",
+                  "value": "2022-02-15"
+                }
+              ],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Actuator Liveness",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{recommendation-service-url}}/actuator/health/liveness",
+              "protocol": "",
+              "host": [
+                "{{recommendation-service-url}}"
+              ],
+              "path": [
+                "actuator",
+                "health",
+                "liveness"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "2022-01-01"
+                },
+                {
+                  "key": "to",
+                  "value": "2022-02-15"
+                }
+              ],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Actuator Health",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{recommendation-service-url}}/actuator/health",
+              "protocol": "",
+              "host": [
+                "{{recommendation-service-url}}"
+              ],
+              "path": [
+                "actuator",
+                "health"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "2022-01-01"
+                },
+                {
+                  "key": "to",
+                  "value": "2022-02-15"
+                }
+              ],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Supported Symbols",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{recommendation-service-url}}/api/v1/cryptos/supported",
+          "protocol": "",
+          "host": [
+            "{{recommendation-service-url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "cryptos",
+            "supported"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "Swagger UI",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{recommendation-service-url}}/swagger-ui",
+          "protocol": "",
+          "host": [
+            "{{recommendation-service-url}}"
+          ],
+          "path": [
+            "swagger-ui"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "API Docs",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{recommendation-service-url}}/v3/api-docs",
+          "protocol": "",
+          "host": [
+            "{{recommendation-service-url}}"
+          ],
+          "path": [
+            "v3",
+            "api-docs"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "recommendation-service-url",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    # I would consider to use an external database (e.g. PostgreSQL)
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:crypto;DB_CLOSE_DELAY=-1}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+
+  jpa:
+    hibernate:
+      # I would consider to use migrations Flyway and ddl-auto=validate/none.
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 200
+        order_inserts: true
+
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+
+  threads:
+    virtual:
+      enabled: true
+
+  h2:
+    console:
+      enabled: false
+
+server:
+  shutdown: graceful
+
+logging:
+  level:
+    root: INFO

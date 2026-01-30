@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crypto-recommendation-config
+data:
+  # Application configuration via environment variables
+  APP_IMPORT_ENABLED: "true"
+  APP_IMPORT_CLEAN_BEFORE_IMPORT: "false"
+  APP_IMPORT_RESOURCE_PATTERN: "classpath*:data/*_values.csv"
+  APP_IMPORT_BATCH_SIZE: "1000"
+
+  APP_RATE_LIMIT_ENABLED: "true"
+  APP_RATE_LIMIT_CAPACITY: "12"
+  APP_RATE_LIMIT_REFILL_TOKENS: "120"
+  APP_RATE_LIMIT_REFILL_DURATION: "PT1M"
+  APP_RATE_LIMIT_MAX_BUCKETS: "10000"
+  APP_RATE_LIMIT_BUCKET_EXPIRE_AFTER_ACCESS: "PT15M"
+
+  # Database settings (example; I would consider to switch to external DB in real prod)
+  SPRING_DATASOURCE_URL: "jdbc:h2:mem:crypto;DB_CLOSE_DELAY=-1"
+  SPRING_DATASOURCE_DRIVER_CLASS_NAME: "org.h2.Driver"
+  SPRING_DATASOURCE_USERNAME: "sa"

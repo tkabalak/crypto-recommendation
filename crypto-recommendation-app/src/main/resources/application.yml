@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: crypto-recommendation
+  profiles:
+    default: dev
+
+server:
+  port: ${SERVER_PORT:8080}
+  forward-headers-strategy: framework
+
+app:
+  import:
+    enabled: ${APP_IMPORT_ENABLED:true}
+    clean-before-import: ${APP_IMPORT_CLEAN_BEFORE_IMPORT:false}
+    resource-pattern: ${APP_IMPORT_RESOURCE_PATTERN:classpath*:data/*_values.csv}
+    batch-size: ${APP_IMPORT_BATCH_SIZE:1000}
+
+  rate-limit:
+    enabled: ${APP_RATE_LIMIT_ENABLED:true}
+    capacity: ${APP_RATE_LIMIT_CAPACITY:12}
+    refill-tokens: ${APP_RATE_LIMIT_REFILL_TOKENS:120}
+    refill-duration: ${APP_RATE_LIMIT_REFILL_DURATION:PT1M}
+    max-buckets: ${APP_RATE_LIMIT_MAX_BUCKETS:10000}
+    bucket-expire-after-access: ${APP_RATE_LIMIT_BUCKET_EXPIRE_AFTER_ACCESS:PT15M}
+
+# Common defaults shared by all profiles
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+  api-docs:
+    path: /v3/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+

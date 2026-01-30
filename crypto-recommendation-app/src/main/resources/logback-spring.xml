@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="crypto-recommendation"/>
+
+  <!-- Include request correlation (MDC) fields so logs are traceable across services/pods -->
+  <property name="CONSOLE_PATTERN"
+            value="%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %-5level [%thread] %logger{36} - [%property{APP_NAME}] [req=%X{requestId:-}] [inst=%X{serviceInstanceId:-}] %msg%n"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${CONSOLE_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Reduce noise -->
+  <logger name="org.hibernate.SQL" level="WARN"/>
+  <logger name="org.hibernate.orm.jdbc.bind" level="WARN"/>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>
